@@ -1,16 +1,87 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" data-bs-theme="dark">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <meta name="description" content="A portfolio site for dinnoyow.">
+    <meta name="keywords" content="portfolio, artist, animator, cybersecurity analyst, developer">
+    <meta name="author" content="dinnoyow">
+    <title>Home - dinnoyow</title>
+    <link rel="stylesheet" href="css-files/custom-bs.css">
+    <link rel="stylesheet" href="css-files/theme.css">
+    <link rel="stylesheet" href="node_modules/bootstrap-icons/font/bootstrap-icons.css">
 </head>
-<body>
-    <header></header>
-    <body>
-        <h1>Testing out prioritization</h1>
-        <p>is this prioritized compared to jekyll?</p>
-    </body>
-    <footer></footer>
+<body class="vh-100 d-flex flex-column">
+    <video src="assets/opening-video.mp4" autoplay muted loop class="w-100 h-100 object-fit-cover" style="z-index: -1; position: absolute;"></video>
+    <header class="solid-1px-bottom secondary bg bd-bot-1px">
+        <div class="container py-2 text-center text-md-start">
+            <nav class="navbar navbar-expand-md justify-content-center justify-content-md-start">
+                <a href="#" class="navbar-brand">
+                    <img src="assets/logo-signature.png" alt="dinnoyow signature logo" style="width: 2em;">
+                </a>
+                <a 
+                class="navbar-toggler"
+                data-bs-toggle="collapse"
+                data-bs-target="#collapsed"
+                >
+                    <span class="navbar-toggler-icon"></span>
+                </a>
+                <div id="collapsed" class="collapse navbar-collapse justify-content-end">
+                    <ul class="navbar-nav p-2">
+                        <li class="navbar-item"><a href="#" class="nav-link active" aria-current="page">Home</a></li>
+                        <li class="navbar-item"><a href="#" class="nav-link">About</a></li>
+                        <li class="navbar-item"><a href="#" class="nav-link">Gallery</a></li>
+                        <li class="navbar-item dropdown">
+                            <a 
+                            href="#" 
+                            class="nav-link dropdown-toggle"
+                            data-bs-toggle="dropdown"
+                            data-bs-target=""
+                            >
+                                Projects
+                            </a>
+                            <ul class="collapse dropdown-menu dropdown-menu-end dropdown-center primary bg-2 bd-1px p-1 rounded-3">
+                                <li class="dropdown-item rounded-1 small">Project A</li>
+                                <li class="dropdown-item rounded-1 small">Project B</li>
+                            </ul>
+                        </li>
+                    </ul>
+                </div>
+            </nav>
+        </div>
+    </header>
+
+    <main class="flex-fill cprimary primary bg z-n1">
+        <div class="container h-100">
+            <div class="row align-items-center h-100">
+                <div class="col text-center text-md-start">
+                    <div>
+                        <h1 class="fw-bolder">Welcome.</h1>
+                        <p>This is a simple description about this testing website.</p>
+                        <button class="btn btn-primary" data-bs-toggle="collapse" data-bs-target="#someth">something</button>
+                        <div id="someth" class="collapse">this collapse?</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <footer class="secondary bg bd-top-1px">
+        <div class="container py-4">
+            <div class="row">
+                <div class="col text-start text-secondary">
+                    <span class="small p-1">Built with:</span>
+                    <a href="https://getbootstrap.com/" target="_blank" class="p-1 text-secondary"><span class="bi bi-bootstrap"></span></a>
+                </div>
+                <div class="col text-end text-secondary">
+                    <a href="https://github.com/dinnoyow" target="_blank" class="p-1 text-secondary"><span class="bi bi-github"></span></a>
+                    <a href="https://x.com/dinnoyow" target="_blank" class="p-1 text-secondary"><span class="bi bi-twitter"></span></a>
+                    <a href="#" class="p-1 text-secondary"><span class="bi bi-discord"></span></a>
+                    <a href="https://www.instagram.com/dinnoyow/" target="_blank" class="p-1 text-secondary"><span class="bi bi-instagram"></span></a>
+                </div>
+            </div>
+        </div>
+    </footer>
+    <script src="node_modules/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
 </body>
 </html>

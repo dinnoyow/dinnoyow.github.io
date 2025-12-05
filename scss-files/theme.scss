@@ -1,0 +1,54 @@
+*, nav a {
+    text-decoration: none;
+    [target-current] {
+        font-weight: bolder;
+    }
+}
+
+$background-blur: 50px;
+$primary-border-color: rgba(90,90,90,0.75);
+$secondary-border-color: rgba(90,90,90,0.75);
+
+.primary {
+    &.bg {
+        background-color: rgba(0,0,0,0.5);
+        backdrop-filter: blur($background-blur);
+    }
+    &.bg-2 {
+        background-color: rgba(0,0,0,1);
+    }
+    &.bd-1px {
+        border: 1px solid $primary-border-color;
+    }
+    &.bd-2px {
+        border: 2px solid $primary-border-color;
+    }
+}
+
+.secondary {
+    &.bg {
+        background-color: rgba(0,0,0,0.6);
+        backdrop-filter: blur($background-blur);
+    }
+    &.bg-2 {
+        background-color: rgba(10,10,10,1);
+    }
+    &.bd-1px {
+        border: 1px solid $secondary-border-color;
+    }
+    &.bd-bot-1px {
+        border-bottom: 1px solid $secondary-border-color;
+    }
+    &.bd-top-1px {
+        border-top: 1px solid $secondary-border-color;
+    }
+    &.bd-2px {
+        border: 2px solid $secondary-border-color;
+    }
+}
+
+.tertiary {
+    &.bg {
+        background-color: rgb(84, 84, 244);
+    }
+}
