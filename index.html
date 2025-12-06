@@ -13,7 +13,7 @@
 </head>
 <body class="vh-100 d-flex flex-column">
     <video src="assets/opening-video.mp4" autoplay muted loop class="w-100 h-100 object-fit-cover" style="z-index: -1; position: absolute;"></video>
-    <header class="solid-1px-bottom secondary bg bd-bot-1px">
+    <header class="solid-1px-bottom secondary bg bd-bot-1px z-1">
         <div class="container py-2 text-center text-md-start">
             <nav class="navbar navbar-expand-md justify-content-center justify-content-md-start">
                 <a href="#" class="navbar-brand">
@@ -28,9 +28,9 @@
                 </a>
                 <div id="collapsed" class="collapse navbar-collapse justify-content-end">
                     <ul class="navbar-nav p-2">
-                        <li class="navbar-item"><a href="#" class="nav-link active" aria-current="page">Home</a></li>
-                        <li class="navbar-item"><a href="#" class="nav-link">About</a></li>
-                        <li class="navbar-item"><a href="#" class="nav-link">Gallery</a></li>
+                        <li class="navbar-item"><a id="home-button" href="#" class="nav-link active" onclick="show_home()">Home</a></li>
+                        <li class="navbar-item"><a id="about-button" href="#" class="nav-link" onclick="show_about()">About</a></li>
+                        <li class="navbar-item"><a id="gallery-button" href="#" class="nav-link" onclick="show_gallery()">Gallery</a></li>
                         <li class="navbar-item dropdown">
                             <a 
                             href="#" 
@@ -42,7 +42,8 @@
                             </a>
                             <ul class="collapse dropdown-menu dropdown-menu-end dropdown-center primary bg-2 bd-1px p-1 rounded-3">
                                 <li class="dropdown-item rounded-1 small">Leafboard</li>
-                                <li class="dropdown-item rounded-1 small"></li>
+                                <li class="dropdown-item rounded-1 small">Grinder's Forge</li>
+                                <li class="dropdown-item rounded-1 small">Bijou Never Cry</li>
                             </ul>
                         </li>
                     </ul>
@@ -51,15 +52,39 @@
         </div>
     </header>
 
-    <main class="flex-fill cprimary primary bg z-n1">
-        <div class="container h-100">
-            <div class="row align-items-center h-100">
+    <main class="flex-fill cprimary primary bg z-0 py-3 overflow-y-auto overflow-x-hidden" id="main-content">
+        <div class="container h-100" id="home">
+            <div class="row align-items-center h-100 row-cols-1 row-cols-md-2">
                 <div class="col text-center text-md-start">
                     <div>
                         <h1 class="fw-bolder">Welcome.</h1>
                         <p>This is a simple description about this testing website.</p>
-                        <button class="btn btn-primary" data-bs-toggle="collapse" data-bs-target="#someth">something</button>
-                        <div id="someth" class="collapse">this collapse?</div>
+                    </div>
+                </div>
+                <div class="col text-center text-md-start d-none d-md-block">
+
+                </div>
+            </div>
+        </div>
+        <div class="container h-100" id="about">
+            <div class="row align-items-center h-100">
+                <div class="col text-center text-md-start">
+                    <div>
+                        <h1 class="fw-bolder">About me.</h1>
+                        <p>This is a simple description about this testing website.</p>
+                    </div>
+                </div>
+            </div>
+            <div class="py-4">
+                <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Dicta autem officia ipsam libero et, iusto praesentium consequuntur, vero sunt accusamus numquam deserunt voluptatum illum labore veritatis reprehenderit nam laboriosam esse.</p>
+            </div>
+        </div>
+        <div class="container h-100" id="gallery">
+            <div class="row align-items-center h-100">
+                <div class="col text-center text-md-start">
+                    <div>
+                        <h1 class="fw-bolder">Gallery.</h1>
+                        <p>This is a simple description about this testing website.</p>
                     </div>
                 </div>
             </div>
@@ -83,6 +108,34 @@
             </div>
         </div>
     </footer>
+    <script>
+        function unshow_all() {
+            let main = document.getElementById("main-content")
+            let main_len = main.children.length
+            for (let i = 0; i < main_len; i ++) {
+                console.log(main.children[i].classList.add("d-none"))
+            }
+            document.getElementById("home-button").classList.remove("active")
+            document.getElementById("about-button").classList.remove("active")
+            document.getElementById("gallery-button").classList.remove("active")
+        }
+        function show_home() {
+            unshow_all()
+            document.getElementById("home").classList.remove("d-none")
+            document.getElementById("home-button").classList.add("active")
+        }
+        function show_about() {
+            unshow_all()
+            document.getElementById("about").classList.remove("d-none")
+            document.getElementById("about-button").classList.add("active")
+        }
+        function show_gallery() {
+            unshow_all()
+            document.getElementById("gallery").classList.remove("d-none")
+            document.getElementById("gallery-button").classList.add("active")
+        }
+        show_home()
+    </script>
     <script src="./node-modules/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
 </body>
 </html>
