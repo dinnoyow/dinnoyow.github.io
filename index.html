@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="A portfolio site for dinnoyow.">
+    <meta name="description" content="Hello, I'm dinnoyow. I am an illustrator and developer.">
     <meta name="keywords" content="portfolio, artist, animator, cybersecurity analyst, developer">
     <meta name="author" content="dinnoyow">
     <title>Home - dinnoyow</title>
@@ -12,8 +12,11 @@
     <link rel="stylesheet" href="./node-modules/bootstrap-icons/font/bootstrap-icons.css">
 </head>
 <body class="vh-100 d-flex flex-column">
-    <video src="assets/opening-video.mp4" autoplay muted loop class="w-100 h-100 object-fit-cover" style="z-index: -1; position: absolute;"></video>
-    <header class="solid-1px-bottom secondary bg bd-bot-1px z-1">
+    <video src="assets/opening-video.mp4" autoplay muted loop class="w-100 h-100 object-fit-cover" style="z-index: -1; position: fixed;"></video>
+    <header class="solid-1px-bottom secondary bg bd-bot-1px z-1 user-select-none">
+        <div class="h-100 w-100 overflow-hidden position-absolute d-none d-lg-block">
+            <div data-follow="1" class="abs cir300px blur300px white-25 overflow-hidden"></div>
+        </div>
         <div class="container py-2 text-center text-md-start">
             <nav class="navbar navbar-expand-md justify-content-center justify-content-md-start">
                 <a href="#" class="navbar-brand">
@@ -28,22 +31,23 @@
                 </a>
                 <div id="collapsed" class="collapse navbar-collapse justify-content-end">
                     <ul class="navbar-nav p-2">
-                        <li class="navbar-item"><a id="home-button" href="#" class="nav-link active" onclick="show_home()">Home</a></li>
-                        <li class="navbar-item"><a id="about-button" href="#" class="nav-link" onclick="show_about()">About</a></li>
-                        <li class="navbar-item"><a id="gallery-button" href="#" class="nav-link" onclick="show_gallery()">Gallery</a></li>
+                        <li class="navbar-item"><a id="home-button" href="#" class="nav-link active" onclick="show('home')">Home</a></li>
+                        <li class="navbar-item"><a id="about-button" href="#" class="nav-link" onclick="show('about')">About</a></li>
+                        <li class="navbar-item"><a id="gallery-button" href="#" class="nav-link" onclick="show('gallery')">Gallery</a></li>
                         <li class="navbar-item dropdown">
                             <a 
                             href="#" 
                             class="nav-link dropdown-toggle"
                             data-bs-toggle="dropdown"
                             data-bs-target=""
+                            id="projects-button"
                             >
                                 Projects
                             </a>
-                            <ul class="collapse dropdown-menu dropdown-menu-end dropdown-center primary bg-2 bd-1px p-1 rounded-3">
-                                <li class="dropdown-item rounded-1 small">Leafboard</li>
-                                <li class="dropdown-item rounded-1 small">Grinder's Forge</li>
-                                <li class="dropdown-item rounded-1 small">Bijou Never Cry</li>
+                            <ul class="collapse dropdown-menu dropdown-menu-end dropdown-center primary bg-2 bd-1px p-1 rounded-3 overflow-hidden">
+                                <li class="dropdown-item rounded-1 small p-2" onclick="show('leafboard')">Leafboard</li>
+                                <li class="dropdown-item rounded-1 small p-2" onclick="show('grinders-forge')">Grinders Forge</li>
+                                <li class="dropdown-item rounded-1 small p-2" onclick="show('bijou-may-cry')">Bijou May Cry</li>
                             </ul>
                         </li>
                     </ul>
@@ -89,17 +93,64 @@
                 </div>
             </div>
         </div>
+        <div class="container h-100" id="leafboard">
+            <div class="row align-items-center h-100">
+                <div class="col text-center text-md-start">
+                    <div>
+                        <h1 class="fw-bolder">Leafboard.</h1>
+                        <p>This is a simple description about this testing website.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="container h-100" id="grinders-forge">
+            <div class="row align-items-center h-100">
+                <div class="col text-center text-md-start">
+                    <div>
+                        <h1 class="fw-bolder">Grinders Forge.</h1>
+                        <p>This is a simple description about this testing website.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="container h-100" id="bijou-may-cry">
+            <div class="row align-items-center h-100">
+                <div class="col text-center text-md-start">
+                    <div>
+                        <h1 class="fw-bolder">Bijou May Cry.</h1>
+                        <p>This is a simple description about this testing website.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
     </main>
 
-    <footer class="secondary bg bd-top-1px">
-        <div class="container py-4">
+    <footer class="secondary bg bd-top-1px user-select-none position-relative z-1">
+        <div class="h-100 w-100 overflow-hidden position-absolute d-none d-lg-block z-0">
+            <div data-follow="1" class="abs cir300px blur300px white-25"></div>
+        </div>
+        <div class="container py-4 position-relative z-1">
             <div class="row">
-                <div class="col text-start text-secondary">
-                    <span class="small p-1">Built with:</span>
-                    <a href="https://getbootstrap.com/" target="_blank" class="p-1 text-secondary"><span class="bi bi-bootstrap"></span></a>
-                    <a href="#" class="p-1 text-secondary"><span class="bi bi-css"></span></a>
+                <div class="col text-start text-secondary d-flex flex-row align-items-center justify-content-start">
+                    <span class="small d-none d-md-block p-1 text-shadow-1">Coded with:</span>
+                    <span class="p-1 d-block d-md-none bi bi-code-slash"></span>
+                    <a href="https://getbootstrap.com/" target="_blank" class="p-1 text-secondary"><span class="bi bi-bootstrap-fill"></span></a>
+                    <a 
+                        href="https://jwanner83.github.io/follow-js/index.html" target="_blank"
+                        class="text-secondary text-decoration-none small p-1 text-shadow-1"
+                        style="transform: translatey(-1px);"
+                        >
+                        , sass
+                    </a>
+                    <a 
+                        href="https://jwanner83.github.io/follow-js/index.html" target="_blank"
+                        class="text-secondary text-decoration-none small p-1 text-shadow-1"
+                        style="transform: translatey(-1px);"
+                        >
+                        , follow.js
+                    </a>
                 </div>
-                <div class="col text-end text-secondary">
+                <div class="col text-end text-secondary d-flex flex-row align-items-center justify-content-end">
                     <a href="https://github.com/dinnoyow" target="_blank" class="p-1 text-secondary"><span class="bi bi-github"></span></a>
                     <a href="https://x.com/dinnoyow" target="_blank" class="p-1 text-secondary"><span class="bi bi-twitter"></span></a>
                     <a href="#" class="p-1 text-secondary"><span class="bi bi-discord"></span></a>
@@ -109,33 +160,58 @@
         </div>
     </footer>
     <script>
+        let current_selected = ""
+        let css_hider = "d-none"
+        let css_title_highlighter = "active"
+        let transition_duration = 200
         function unshow_all() {
             let main = document.getElementById("main-content")
             let main_len = main.children.length
             for (let i = 0; i < main_len; i ++) {
-                console.log(main.children[i].classList.add("d-none"))
+                main.children[i].classList.add("fade-out")
+                setTimeout(() => {
+                    main.children[i].classList.add(css_hider) 
+                }, transition_duration);
             }
-            document.getElementById("home-button").classList.remove("active")
-            document.getElementById("about-button").classList.remove("active")
-            document.getElementById("gallery-button").classList.remove("active")
+            document.getElementById("home-button").classList.remove(css_title_highlighter)
+            document.getElementById("about-button").classList.remove(css_title_highlighter)
+            document.getElementById("gallery-button").classList.remove(css_title_highlighter)
+            document.getElementById("projects-button").classList.remove(css_title_highlighter)
         }
-        function show_home() {
+        function scroll_top() {
+            let main = document.getElementById("main-content")
+            main.scrollTop = 0
+        }
+        function show(id = "home", scrolltop = true) {
+            if (current_selected == id) {return}
+            current_selected = id
             unshow_all()
-            document.getElementById("home").classList.remove("d-none")
-            document.getElementById("home-button").classList.add("active")
+            setTimeout(() => {
+                let element = document.getElementById(id)
+                let button = document.getElementById(current_selected + "-button")
+                if (element) {
+                    element.classList.remove(css_hider)
+                    setTimeout(() => {
+                        element.classList.remove("fade-out")
+                    }, 1);
+                }
+                if (scrolltop) {scroll_top()}
+                if (button) {button.classList.add(css_title_highlighter)}
+            }, transition_duration);
+            document.title = capitalize(id)
         }
-        function show_about() {
-            unshow_all()
-            document.getElementById("about").classList.remove("d-none")
-            document.getElementById("about-button").classList.add("active")
+        function capitalize(string) {
+            let strings = string.split("-")
+            let result = ""
+            for (let i = 0; i < strings.length; i ++) {
+                result += strings[i].charAt(0).toUpperCase()
+                result += strings[i].slice(1) + " "
+            }
+            return result
         }
-        function show_gallery() {
-            unshow_all()
-            document.getElementById("gallery").classList.remove("d-none")
-            document.getElementById("gallery-button").classList.add("active")
-        }
-        show_home()
+        show("home")
     </script>
+    <script src="node-modules/follow-js/dist/follow.min.js" data-follow-auto></script>
     <script src="./node-modules/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
 </body>
 </html>
