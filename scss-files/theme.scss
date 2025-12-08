@@ -1,9 +1,10 @@
-*, nav a {
+*, a {
     text-decoration: none;
     [target-current] {
         font-weight: bolder;
     }
     transition: opacity 200ms;
+    scroll-behavior: smooth;
 }
 
 $background-blur: 50px;

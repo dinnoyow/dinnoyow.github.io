@@ -1,11 +1,12 @@
-*, nav a {
+*, a {
   text-decoration: none;
 }
-* [target-current], nav a [target-current] {
+* [target-current], a [target-current] {
   font-weight: bolder;
 }
-*, nav a {
+*, a {
   transition: opacity 200ms;
+  scroll-behavior: smooth;
 }
 
 .text-shadow-1 {
