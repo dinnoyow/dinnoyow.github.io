@@ -17,12 +17,21 @@
   box-shadow: 0px 2px 2px rgba(0, 0, 0, 0.5);
 }
 
+.min-h-100 {
+  min-height: 100%;
+}
+
 .abs {
   position: absolute;
 }
 .abs.sqr100px {
   min-height: 100px;
   min-width: 100px;
+}
+.abs.cir50px {
+  min-height: 50px;
+  min-width: 50px;
+  border-radius: 50px;
 }
 .abs.cir100px {
   min-height: 100px;
@@ -43,6 +52,9 @@
   min-height: 500px;
   min-width: 500px;
   border-radius: 500px;
+}
+.abs.blur50px {
+  filter: blur(50px);
 }
 .abs.blur100px {
   filter: blur(100px);

@@ -56,14 +56,17 @@
         </div>
     </header>
     <div id="top"></div>
-    <main class="flex-fill cprimary primary bg z-0 py-0 overflow-y-auto overflow-x-hidden" id="main-content">
+    <main class="flex-fill cprimary primary bg z-0 py-0 px-4 px-md-0 overflow-y-auto overflow-x-hidden position-relative" id="main-content">
+        <div class="h-100 w-100 overflow-hidden position-absolute d-none d-lg-block ignore-unshow z-n1">
+            <div data-follow="1" class="abs cir50px blur100px white overflow-hidden"></div>
+        </div>
         <div class="container h-100" id="home">
             <div class="row align-items-center h-100 row-cols-1 row-cols-md-2">
                 <div class="col text-center text-md-start d-md-flex flex-md-row">
                     <div>
                         <h1 class="fw-bolder">Hi, I'm dinnoyow.</h1>
-                        <p>I'm an artist and a developer, and you're now on my website. You can find <a href="#about" onclick="show('about')">my thoughts</a>, <a href="#gallery" onclick="show('gallery')">my art and animations</a>, and <a href="#leafboard" onclick="show('leafboard')">my projects</a> in this website.</p>
-                        <div class="social-medias"></div>
+                        <p>I'm an artist and a developer, and you're now on my website. You can find my <a href="#about" onclick="show('about')">thoughts</a>, <a href="#gallery" onclick="show('gallery')">art and animations</a>, and <a href="#leafboard" onclick="show('leafboard')">projects</a> in this website.</p>
+                        <div class="social-medias d-flex justify-content-center justify-content-md-start"></div>
                     </div>
                     <div class="d-none d-md-block p-lg-5"></div>
                 </div>
@@ -75,21 +78,37 @@
                 <div class="col text-center text-md-start d-md-flex flex-md-row">
                     <div>
                         <h1 class="fw-bolder">About Page.</h1>
-                        <p>Here you'll find me talk about <a href="#myself">myself</a>, my views, artificial intelligence, and education.</p>
+                        <p>Here you'll find me talk about <a href="#myself">myself</a>, <a href="#myviews">my views</a>, artificial intelligence, and education.</p>
                     </div>
                     <div class="d-none d-md-block p-lg-5"></div>
                 </div>
                 <div class="col d-none d-md-block"></div>
             </div>
             <div class="primary bd-1px"></div>
-            <div id="myself" class="row align-items-center h-100">
-                <div class="col text-center text-md-start d-md-flex flex-md-row py-5">
+            <div id="myself" class="row align-items-center min-h-100">
+                <div class="col d-md-flex flex-md-row">
                     <div>
+                        <div class="p-5"></div>
                         <h1 class="fw-bolder">About me.</h1>
-                        <p>I'm an artist and developer interested in creating applications and games that has <b>value</b>. I'm inspired by and aspired to example <a href="https://www.valvesoftware.com" target="_blank">Valve's</a> philosophy at work.</p>
-                        <p>I love musics, mangas, motion pictures, and video games. My main goal is to create works that will leave marks in people's mind.</p>
-                        <p><i>@dinnoyow</i> is a nickname I use for my internet-related activities and account usernames. It is used for anonimity.</p>
-                        <div class="social-medias"></div>
+                        <p>I'm an artist and developer interested in creating applications and games that have <b>value</b>. I'm inspired by and aspire to example <a href="https://www.valvesoftware.com" target="_blank">Valve's</a> philosophy at work.</p>
+                        <p>I'm Indonesian, grew up in Indonesia, and I've finished my high school degree. I'm currently gaining more skills in art, security, and programming.</p>
+                        <p>Besides academic studies, I've been self-taught in the pursuit of my interests, which gives me an important insight: There's always a way to make sense of anything, and what you need is to find your footing. Until you find it, curiosity is your teacher.</p>
+                        <p>I love music, manga, motion pictures, and video games. My main goal is to create works that will leave marks on people's minds.</p>
+                        <p><i>@dinnoyow</i> is a nickname I use for my internet-related activities and account usernames. It is used for anonymity.</p>
+                        <div class="social-medias d-flex justify-content-center justify-content-md-start"></div>
+                        <div class="p-5"></div>
+                    </div>
+                    <div class="d-none d-md-block p-lg-5"></div>
+                </div>
+                <div class="col d-none d-md-block"></div>
+            </div>
+            <div class="primary bd-1px"></div>
+            <div id="myviews" class="row align-items-center min-h-100">
+                <div class="col d-md-flex flex-md-row">
+                    <div>
+                        <div class="p-5"></div>
+                        <h1 class="fw-bolder">My views.</h1>
+                        <div class="p-5"></div>
                     </div>
                     <div class="d-none d-md-block p-lg-5"></div>
                 </div>
@@ -137,8 +156,7 @@
             </div>
         </div>
     </main>
-
-    <footer class="secondary bg bd-top-1px user-select-none position-relative z-1">
+    <footer class="secondary bg bd-top-1px user-select-none position-static z-1">
         <div class="h-100 w-100 overflow-hidden position-absolute d-none d-lg-block z-0">
             <div data-follow="1" class="abs cir300px blur300px white-25"></div>
         </div>
@@ -189,6 +207,9 @@
             let main = document.getElementById("main-content")
             let main_len = main.children.length
             for (let i = 0; i < main_len; i ++) {
+                if (main.children[i].classList.contains("ignore-unshow")) {
+                    continue
+                }
                 main.children[i].classList.add("fade-out")
                 setTimeout(() => {
                     main.children[i].classList.add(css_hider) 
@@ -237,7 +258,7 @@
             let elements = document.getElementsByClassName("social-medias")
             for (let i = 0; i < elements.length; i++) {
                 elements[i].innerHTML = `
-                <ul class="text-center d-flex flex-row list-unstyled m-0">
+                <ul class="text-center d-flex flex-row list-unstyled m-0 w-auto">
                     <li><a href="https://github.com/dinnoyow" target="_blank" class="p-1 text-secondary"><span class="bi bi-github"></span></a></li>
                     <li><a href="https://x.com/dinnoyow" target="_blank" class="p-1 text-secondary"><span class="bi bi-twitter"></span></a></li>
                     <li><a href="#" class="p-1 text-secondary" data-bs-toggle="modal" data-bs-target="#clipboard-alert"><span class="bi bi-discord"></span></a></li>
