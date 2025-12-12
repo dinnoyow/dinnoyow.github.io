@@ -501,6 +501,13 @@
             }, transition_duration);
             document.title = capitalize(id)
             scroll_top()
+            jumpTo(id)
+        }
+        function jumpTo(anchor_id){
+            var url = location.href;
+            location.href = "#"+anchor_id;
+            url = location.href
+            history.replaceState(null,null,url);
         }
         function capitalize(string) {
             let strings = string.split("-")
@@ -527,8 +534,40 @@
                 `;
             }
         }
-        displaySocialMedia()
-        show("home")
+        displaySocialMedia();
+        function showFromURL() {
+            let url = window.location.href;
+            let urlID = "";
+            if (url.includes("#")) {
+                urlID = url.split("#")[1];
+            }
+            if (urlID != "") {
+                switch (urlID) {
+                    case "home":
+                        show("home");
+                    break;
+                    case "about":
+                        show("about")
+                    break;
+                    case "gallery":
+                        show("gallery")
+                    break;
+                    case "leafboard":
+                        show("leafboard")
+                    break;
+                    case "dokipopfever":
+                        show("dokipopfever")
+                    break;
+                    default:
+                        show("home")
+                    break;
+                }
+            } else {
+                show("home")
+            }
+        }
+        showFromURL()
+        onpopstate = (event) => {showFromURL()}
     </script>
     <script src="node-modules/follow-js/dist/follow.min.js" data-follow-auto></script>
     <script src="./node-modules/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
