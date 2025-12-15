@@ -541,6 +541,11 @@
             if (url.includes("#")) {
                 urlID = url.split("#")[1];
             }
+            if (urlID == "myself") {current_selected = urlID; return}
+            if (urlID == "ai") {current_selected = urlID; return}
+            if (urlID == "education") {current_selected = urlID; return}
+            if (urlID == "gallery2024") {current_selected = urlID; return}
+            if (urlID == "gallery2025") {current_selected = urlID; return}
             if (urlID != "") {
                 switch (urlID) {
                     case "home":
